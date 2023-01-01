@@ -1,12 +1,15 @@
 USERPROFILE
 
 NAME
+    
     userprofile - create users from an file and remove unlisted users
 
 SYNOPSIS
+    
     userprofile.sh [OPTION]...
 
 DESCRIPTION
+    
     Creates Users from a file and allocates the group "lehrer" and "schueler"
     
     Users of the groups "lehrer" or "schueler" that are not listed anymore
