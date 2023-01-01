@@ -110,12 +110,21 @@ for user in ${users[@]}; do
     done
     if [ $found = false ]; then
         {
+            dir=""
+            gr=""
             if id -nG "$user" | grep -qw "$lehrerGroup"; then
                 userdel "$user"
-                rm -dr "/home/$lehrerGroup/$user"
+                gr="$lehrerGroup"
+                dir="/home/$lehrerGroup/$user"
+                bdir="/home/backup/$user-$gr/"
+                mkdir "$bdir"
+                mv "$dir/*" "$bdir"
+                # rm -dr 
             elif id -nG "$user" | grep -qw "$schuelerGroup"; then
                 userdel "$user"
-                rm -dr "/home/$schuelerGroup/$user"
+                gr="$schuelerGroup"
+                dir="/home/$schuelerGroup/$user"
+                mkdir "/home/backup/$user-$gr"
             fi
         } &> /dev/null
     fi
