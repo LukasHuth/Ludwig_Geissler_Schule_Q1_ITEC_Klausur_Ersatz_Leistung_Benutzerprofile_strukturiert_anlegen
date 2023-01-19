@@ -1,4 +1,0 @@
-mv -r "/home/lehrer/schustermi/*" "/home/backup/schustermi-lehrer/"
-mkdir -r "/home/klassen/12GI/"
-mkdir -r "/home/klassen/12GI/"
-mkdir -r "/home/klassen/12GI/"

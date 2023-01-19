@@ -2,7 +2,8 @@ USERPROFILE
 
 NAME
     
-    userprofile - Erstellt Benutzer aus einer Datei und löscht Benutzer, die sich nicht mehr in der Datei befinden
+    userprofile - Erstellt Benutzer aus einer Datei und löscht Benutzer, die sich nicht mehr in der
+                    Datei befinden
 
 SYNOPSIS
     
@@ -12,7 +13,9 @@ BESCHREIBUNG
     
     Erstellt Benutzer von einer Datei und weist ihnen die Gruppe "lehrer" oder "schueler" zugewiesen.
 
-    Benutzer der Gruppen "lehrer" und "schueler" die nicht mehr in der Datei gelistet sind, werden gelöscht und ihre home (~) Ordner werden in /home/backup/<benutzername>-<gruppe> verschoben.
+    Benutzer der Gruppen "lehrer" und "schueler" die nicht mehr in der Datei gelistet sind, werden
+    gelöscht und ihre home (~) Ordner werden in /home/backup/<benutzername>-<gruppe> verschoben.
+    Die Datei muss mit einer leeren Zeile enden, damit der letzte Benutzer ausgelesen wird.
 
     Außerdem werden nicht existierende Gruppen automatisch erstellt
 
@@ -20,7 +23,8 @@ BESCHREIBUNG
 
     <benutzername>|<Vor- und Nachname>|<schueler oder lehrer>
 
-    wenn ein Benutzer in eine Klasse hinzugefügt werden soll, und ein passendes Tauschordner verzeichniss bei /home/klassen/<klasse> angelegt werden soll, verwenden sie dieses Format:
+    wenn ein Benutzer in eine Klasse hinzugefügt werden soll, und ein passendes Tauschordner verzeichniss
+    bei /home/klassen/<klasse> angelegt werden soll, verwenden sie dieses Format:
 
     <benutzername>|<Vor- und Nachname>|<schueler oder lehrer>|<klasse>
 
