@@ -2,28 +2,34 @@ USERPROFILE
 
 NAME
     
-    userprofile - create users from an file and remove unlisted users
+    userprofile - Erstellt Benutzer aus einer Datei und löscht Benutzer, die sich nicht mehr in der Datei befinden
 
 SYNOPSIS
     
-    userprofile.sh [OPTION]...
+    userprofile.sh [OPTIONEN]...
 
-DESCRIPTION
+BESCHREIBUNG
     
-    Creates Users from a file and allocates the group "lehrer" and "schueler"
-    
-    Users of the groups "lehrer" or "schueler" that are not listed anymore
+    Erstellt Benutzer von einer Datei und weist ihnen die Gruppe "lehrer" oder "schueler" zugewiesen.
 
-    get deleted, already existing users will be ignored. Also not existing
+    Benutzer der Gruppen "lehrer" und "schueler" die nicht mehr in der Datei gelistet sind, werden gelöscht und ihre home (~) Ordner werden in /home/backup/<benutzername>-<gruppe> verschoben.
 
-    groups that will be used will be created.
+    Außerdem werden nicht existierende Gruppen automatisch erstellt
 
-    -a          Execute the script on every given user even the already existing ones
+    Das standart Benutzer vormat in der Datei lautet:
 
-    -i FILE     Change user list lookup file (Default: people.file)
+    <benutzername>|<Vor- und Nachname>|<schueler oder lehrer>
 
-    -o FILE     Change the error output file (Default: errors.txt)
+    wenn ein Benutzer in eine Klasse hinzugefügt werden soll, und ein passendes Tauschordner verzeichniss bei /home/klassen/<klasse> angelegt werden soll, verwenden sie dieses Format:
 
-    -l WORD     Change the group name for users of the group "lehrer" (Only appliers to users that will be created)
+    <benutzername>|<Vor- und Nachname>|<schueler oder lehrer>|<klasse>
 
-    -l WORD     Change the group name for users of the group "schueler" (Only appliers to users that will be created)
+    Dies sind die Argument optionen, die das Program bietet:
+
+    -i DATEI    Ändert die Datei aus der die Benutzer ausgelesen werden (Standart: people.file)
+
+    -o DATEI    Ändert die Datei in die die Fehler ausgegeben werden (Standart: errors.txt)
+
+    -l WORT     Ändert den namen der Gruppe den die Benutzer der Gruppe "lehrer" zugewiesen bekommen
+
+    -s WORT     Ändert den namen der Gruppe den die Benutzer der Gruppe "schueler" zugewiesen bekommen
