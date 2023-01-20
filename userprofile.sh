@@ -63,6 +63,8 @@ do
         foundUsers[index++]=$accname
         getent group "$group" || groupadd $group
         homedir="/home/$group/$accname/"
+	# create /home/$group
+	ls "/home/$group/" &> /dev/null || mkdir "/home/$group"
         getent passwd "$user" || useradd -p $(openssl passwd -1 $password) -c "$name" -g $group -m -d $homedir $accname
         useradderr=$?
         # echo "getent passwd "$user" || useradd -p $(openssl passwd -1 $password) -c "$name" -g $group -m -d $homedir $accname" >> "test.txt"
@@ -85,6 +87,7 @@ do
         fi
         if [ $withklassen = true ] ; then 
             getent group "$class" || groupadd $class
+	    ls "/home/klassen" &> /dev/null || mkdir "/home/klassen"
             if [ ! -d "/home/klassen/$class" ] ; then
                 # echo "mkdir -r \"/home/klassen/$class/\"" >> "test.txt"
                 mkdir "/home/klassen/$class/"
