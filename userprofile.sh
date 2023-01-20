@@ -33,6 +33,11 @@ ls "/home/default/$lehrerGroup" &> /dev/null || $(mkdir "/home/default/$lehrerGr
 
 # echo $schuelerGroup
 
+if test -f $filename ; then
+    echo "Error there was no file named '$filename' that could be read to create the users"
+    exit 1
+fi
+
 touch $errorfile
 while read line
 do
