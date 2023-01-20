@@ -2,7 +2,7 @@
 filename="people.file"
 password="password"
 errorfile="errors.txt"
-rm $errorfile
+cat $errorfile &> /dev/null || rm $errorfile
 errors=0
 #read lines
 
@@ -13,6 +13,7 @@ users=$(cut -d: -f1 /etc/passwd)
 IFS=' ' read -ra userarr <<< $users
 schuelerGroup="schueler"
 lehrerGroup="lehrer"
+ls "/home/default/" || mkdir "/home/default/"
 
 {
     while getopts s:l:i:o: flag
@@ -26,7 +27,11 @@ lehrerGroup="lehrer"
     done
 } &> /dev/null
 
-echo $schuelerGroup
+ls "/home/default/$schuelerGroup" &> /dev/null || $(mkdir "/home/default/$schuelerGroup"; echo "Wilkommen" > "/home/default/$schuelerGroup/Wilkommen.txt"
+
+ls "/home/default/$lehrerGroup" &> /dev/null || $(mkdir "/home/default/$lehrerGroup"; echo "Wilkommen" > "/home/default/$lehrerGroup/Wilkommen.txt"
+
+# echo $schuelerGroup
 
 touch $errorfile
 while read line
